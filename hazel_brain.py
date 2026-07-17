@@ -4,21 +4,21 @@
 
 # Data
 xs = [1,2,3,4]
-ys = [1,4,9,16]
+ys = [2,3,4,5]
 
 #Offset(bias)
-w = 0.0
-b = 0.0
+w = 100
+b = 0.0001
 
 #Learn rate (学习率)
 lr = 0.01
 
 #Start
-for epoch in range(1000):
+for epoch in range(100000):
     total_loss = 0
     for x, y_ture in zip(xs, ys):
         #Prediction
-        y_pred = w * x +b
+        y_pred =w  * x +b
         #Calculation error
         loss = (y_pred - y_ture) **2
         #Cumulative error
@@ -36,7 +36,7 @@ for epoch in range(1000):
         b -= lr * dloss_db
 
         #每100轮打印1次
-    if epoch % 100 == 0:
+    if epoch % 10000 == 0:
         print("epoch", epoch)
         print("loss", total_loss)
         print("w =", w)

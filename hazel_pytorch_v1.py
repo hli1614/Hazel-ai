@@ -25,6 +25,22 @@ layer = nn.Linear(3,2)
 x = torch.tensor([
     [1.0,2.0,3.0]
 ])
+
+with torch.no_grad():
+    layer.weight = torch.nn.Parameter(
+        torch.tensor([
+            [1.0,2.0,3.0],
+            [4.0,5.0,6.0]
+        ])
+    )
+
+    layer.bias = torch.nn.Parameter(
+        torch.tensor([
+            10.0,
+            20.0
+        ])
+    )
+
 print()
 
 print("Input =")
